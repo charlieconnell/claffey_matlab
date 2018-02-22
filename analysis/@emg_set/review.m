@@ -11,6 +11,7 @@ function review(e, trial_list, channel_list, varargin)
 % 10/05/08 keyboard shortcuts
 % 09/17/08 added command line feedback for validity changes
 % 09/05/08 sorted trial filter variable
+% 02/22/18 charlotte altered code to work with Matlab version 2017
 
 %% error checking
 
@@ -50,7 +51,10 @@ function review(e, trial_list, channel_list, varargin)
     
 %% create figure and ui elements
 
-    emg_rev.figure = figure('ResizeFcn', @resize_fcn, 'KeyPressFcn', @key_press_fcn);
+    emg_rev.figure = figure('Visible', 'off',...
+        'ResizeFcn', @resize_fcn,...
+        'KeyPressFcn', @key_press_fcn);
+        
     emg_rev.ax = axes('Parent', emg_rev.figure);
                         
     emg_rev.left_panel = uipanel(...
